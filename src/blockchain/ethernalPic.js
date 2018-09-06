@@ -97,11 +97,7 @@ class EthernalPic extends React.Component {
     let web3 = new Web3(Web3.givenProvider);
     let EthPic = new web3.eth.Contract(ABI, contractAddr);
 
-    EthPic.methods.findPic(document.getElementById('imgID').value).call(         // TO-DO : need to be refactored! - Dummy data.
-      {
-        from: this.state.userAddress,
-        to: contractAddr
-      }).then((result) => {
+    EthPic.methods.findPic(document.getElementById('imgID').value).call().then((result) => {
         console.log("Sent done!");
         console.log(result);
         document.getElementById('result').value = result;
@@ -117,8 +113,8 @@ class EthernalPic extends React.Component {
       <div>
         <h1>EthernalPic Component Works!</h1>
         <h2>Ethereum Wallet Address : {this.state.userAddress} </h2>
-        <button onClick={this.createImg}>Load Pic!</button>
-        <input id = 'imgID' onClick = {this.loadImg}></input>
+        <button onClick={this.loadImg}>Load Pic!</button>
+        <input id = 'imgID'></input>
         <br />
         <button onClick={this.createImg}>Upload Pic!</button>
         <h3>Result</h3>
