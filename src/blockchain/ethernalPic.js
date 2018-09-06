@@ -68,7 +68,7 @@ class EthernalPic extends React.Component {
     */
   }
 
-  createGSC = () => {
+  createImg = () => {
     const ABI = [{"constant":false,"inputs":[{"name":"picture","type":"string"}],"name":"createPic","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"pictures","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"counter","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_counter","type":"uint256"}],"name":"findPic","outputs":[{"name":"result","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"sender","type":"address"},{"indexed":false,"name":"counter","type":"uint256"}],"name":"createdPic","type":"event"}];
     const contractAddr = "0xccb73cdb056755b7cf9b8d1041268073a8cde83d";
     let web3 = new Web3(Web3.givenProvider);
@@ -82,7 +82,29 @@ class EthernalPic extends React.Component {
       }).then((result) => {
         console.log("Sent done!");
         console.log(result);
-        document.getElementById('txresult').value = result;
+        document.getElementById('txresult').innerHTML = result.transactionHash;
+        document.getElementById('txresult').href = "https://ropsten.etherscan.io/tx/" + result.transactionHash;
+      }, (reason) => {
+        console.log("Error!");
+        console.log(reason);
+        document.getElementById('txresult').value = reason;
+      });
+  }
+
+  loadImg = () => {
+    const ABI = [{"constant":false,"inputs":[{"name":"picture","type":"string"}],"name":"createPic","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"pictures","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"counter","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_counter","type":"uint256"}],"name":"findPic","outputs":[{"name":"result","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"sender","type":"address"},{"indexed":false,"name":"counter","type":"uint256"}],"name":"createdPic","type":"event"}];
+    const contractAddr = "0xccb73cdb056755b7cf9b8d1041268073a8cde83d";
+    let web3 = new Web3(Web3.givenProvider);
+    let EthPic = new web3.eth.Contract(ABI, contractAddr);
+
+    EthPic.methods.findPic(document.getElementById('imgID').value).call(         // TO-DO : need to be refactored! - Dummy data.
+      {
+        from: this.state.userAddress,
+        to: contractAddr
+      }).then((result) => {
+        console.log("Sent done!");
+        console.log(result);
+        document.getElementById('result').value = result;
       }, (reason) => {
         console.log("Error!");
         console.log(reason);
@@ -95,9 +117,12 @@ class EthernalPic extends React.Component {
       <div>
         <h1>EthernalPic Component Works!</h1>
         <h2>Ethereum Wallet Address : {this.state.userAddress} </h2>
-        <button onClick={this.createGSC}>Upload Pic!</button>
+        <button onClick={this.createImg}>Load Pic!</button>
+        <input id = 'imgID' onClick = {this.loadImg}></input>
+        <br />
+        <button onClick={this.createImg}>Upload Pic!</button>
         <h3>Result</h3>
-        <textarea id = 'txresult'></textarea>
+        <a id = 'txresult'></a>
       </div>
     );
 

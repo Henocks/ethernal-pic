@@ -41,16 +41,19 @@ class ImageConvertor extends React.Component {
     }
   }
 
+  onResultChange = (event) => {
+    this.setState({imgResult : document.getElementById('result').value});
+  }
+
   render() {
     return (
       <div style={{border:'1px solid black'}}>
         <h2>IMGCONV -------------------------</h2>
         <input type="file" accept="image/*" onChange={this.onFileChange}></input>
         <h2>Result</h2>
-        <textarea id="result" style={{width:'80%', height:'300px'}}></textarea>
-
+        <textarea id="result" onChange={this.onResultChange} style={{width:'80%', height:'300px'}}></textarea>
         <br /><br />
-          <img src={this.state.imgResult} />
+        <img src={this.state.imgResult} />
       </div>
     );
   }
