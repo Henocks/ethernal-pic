@@ -13,10 +13,8 @@ class App extends Component {
         return (
             <div>
                 <Navigator/>
-
                 <ImageConvertor/>
                 <EthernalPic/>
-                
                 <Content/>
                 <Footer/>
             </div>
