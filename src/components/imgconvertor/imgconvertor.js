@@ -23,13 +23,11 @@ class ImageConvertor extends React.Component {
   onFileChange = (event) => {
     let fileList = event.target.files
     if (true) {
-      // 한 번에 하나의 파일만 선택하여 업로드 할 수 있으므로 무조건 0번 index
       let file = fileList[0]
       if (!/^image\//.test(file.type)) {
         alert('이미지 파일만 등록이 가능합니다')
         return false
       }
-      // encode image file to base64
       this.encodeBase64ImageFile(file)
         .then((data) => {
           console.log(data)
