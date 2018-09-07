@@ -43,29 +43,6 @@ class EthernalPic extends React.Component {
         userAddress: address
       })
     });
-
-    /*
-    GrassChain.methods.GSCCount().call().then((result) => {
-      console.log(result);
-    });
-
-    Promise.all([getAddress(), getGSCData(GSCID)]).then((address, GSCData) => {
-      console.log("User Address : " + address[0]);
-      console.log("GSC Data : " + GSCData);
-			GrassChain.methods.pay(GSCID).send(
-					{
-							from:address[0].toString(),
-							to:contractAddr,
-							value:web3.utils.toWei('0.01', 'ether')
-					}).then(function (result) {
-							console.log("Sent done!");
-							console.log(result);
-					}, function (reason) {
-							console.log("Error!");
-							console.log(reason);
-			});
-    });
-    */
   }
 
   createImg = () => {
