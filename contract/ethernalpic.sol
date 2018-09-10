@@ -46,7 +46,7 @@ contract EthernalPic {
     view
     returns(string result)
     {
-        //result = pictures[_counter];
+        result = pictures[_counter].rawPictureData;
     }
 
     function findLicensedPic(uint256 _counter)
