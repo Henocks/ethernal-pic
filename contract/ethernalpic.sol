@@ -30,11 +30,11 @@ contract EthernalPic {
         counter++;
     }
 
-    function createLicensedPic(string picture, string licenseData, address _owner)
+    function createLicensedPic(string picture, string licenseData, uint256 _value, address _owner)
     public
     payable
     {
-        pictures[counter] = Picture(picture, licenseData, msg.sender, _owner, 0, block.timestamp);
+        pictures[counter] = Picture(picture, licenseData, msg.sender, _owner, _value, block.timestamp);
         emit createdPic(msg.sender, counter);
         counter++;
     }
