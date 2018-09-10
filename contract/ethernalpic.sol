@@ -58,6 +58,11 @@ contract EthernalPic {
             if(pictures[_counter].value != msg.value) revert("not enough value!");
             result = pictures[_counter].rawPictureData;
             licenseData = pictures[_counter].licenseData;
+
+            // to-do : send fee to owner just like...
+            /*
+            (picOwner.transfer(msg.value*0.8....));
+             */
         }
         else {
             revert("not a payable picture!");
