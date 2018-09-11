@@ -11,7 +11,7 @@ class EthernalPic extends React.Component {
   }
 
   componentWillMount() {
-    const ABI = [{"constant":false,"inputs":[{"name":"picture","type":"string"}],"name":"createPic","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"pictures","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"counter","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_counter","type":"uint256"}],"name":"findPic","outputs":[{"name":"result","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"sender","type":"address"},{"indexed":false,"name":"counter","type":"uint256"}],"name":"createdPic","type":"event"}];
+    const ABI = [{ "constant": false, "inputs": [{ "name": "picture", "type": "string" }], "name": "createPic", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "pictures", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "counter", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "_counter", "type": "uint256" }], "name": "findPic", "outputs": [{ "name": "result", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "sender", "type": "address" }, { "indexed": false, "name": "counter", "type": "uint256" }], "name": "createdPic", "type": "event" }];
     const contractAddr = "0xE8720CB8b80ffb4D93BeE736C624dc547603fc49";
     const web3 = new Web3(Web3.givenProvider);
     const GrassChain = new web3.eth.Contract(ABI, contractAddr);
@@ -46,7 +46,7 @@ class EthernalPic extends React.Component {
   }
 
   createImg = () => {
-    const ABI = [{"constant":false,"inputs":[{"name":"picture","type":"string"}],"name":"createPic","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"pictures","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"counter","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_counter","type":"uint256"}],"name":"findPic","outputs":[{"name":"result","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"sender","type":"address"},{"indexed":false,"name":"counter","type":"uint256"}],"name":"createdPic","type":"event"}];
+    const ABI = [{ "constant": false, "inputs": [{ "name": "picture", "type": "string" }], "name": "createPic", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "pictures", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "counter", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "_counter", "type": "uint256" }], "name": "findPic", "outputs": [{ "name": "result", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "sender", "type": "address" }, { "indexed": false, "name": "counter", "type": "uint256" }], "name": "createdPic", "type": "event" }];
     const contractAddr = "0xccb73cdb056755b7cf9b8d1041268073a8cde83d";
     let web3 = new Web3(Web3.givenProvider);
     let EthPic = new web3.eth.Contract(ABI, contractAddr);
@@ -58,28 +58,27 @@ class EthernalPic extends React.Component {
         value: 0
       });
 
-        console.log("Sent done!");
-        console.log(result);
-        document.getElementById('txresult').innerHTML = result.transactionHash;
-        document.getElementById('txresult').href = "https://ropsten.etherscan.io/tx/" + result.transactionHash;
-
+    console.log("Sent done!");
+    console.log(txResult);
+    document.getElementById('txresult').innerHTML = txResult.transactionHash;
+    document.getElementById('txresult').href = "https://ropsten.etherscan.io/tx/" + txResult.transactionHash;
   }
 
   loadImg = () => {
-    const ABI = [{"constant":false,"inputs":[{"name":"picture","type":"string"}],"name":"createPic","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"pictures","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"counter","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_counter","type":"uint256"}],"name":"findPic","outputs":[{"name":"result","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"sender","type":"address"},{"indexed":false,"name":"counter","type":"uint256"}],"name":"createdPic","type":"event"}];
+    const ABI = [{ "constant": false, "inputs": [{ "name": "picture", "type": "string" }], "name": "createPic", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "pictures", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "counter", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "_counter", "type": "uint256" }], "name": "findPic", "outputs": [{ "name": "result", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "sender", "type": "address" }, { "indexed": false, "name": "counter", "type": "uint256" }], "name": "createdPic", "type": "event" }];
     const contractAddr = "0xccb73cdb056755b7cf9b8d1041268073a8cde83d";
     let web3 = new Web3(Web3.givenProvider);
     let EthPic = new web3.eth.Contract(ABI, contractAddr);
 
     EthPic.methods.findPic(document.getElementById('imgID').value).call().then((result) => {
-        console.log("Sent done!");
-        console.log(result);
-        document.getElementById('result').value = result;
-      }, (reason) => {
-        console.log("Error!");
-        console.log(reason);
-        document.getElementById('txresult').value = reason;
-      });
+      console.log("Sent done!");
+      console.log(result);
+      document.getElementById('result').value = result;
+    }, (reason) => {
+      console.log("Error!");
+      console.log(reason);
+      document.getElementById('txresult').value = reason;
+    });
   }
 
   render() {
@@ -88,11 +87,11 @@ class EthernalPic extends React.Component {
         <h1>EthernalPic Component Works!</h1>
         <h2>Ethereum Wallet Address : {this.state.userAddress} </h2>
         <button onClick={this.loadImg}>Load Pic!</button>
-        <input id = 'imgID'></input>
+        <input id='imgID'></input>
         <br />
         <button onClick={this.createImg}>Upload Pic!</button>
         <h3>Result</h3>
-        <a id = 'txresult'></a>
+        <a id='txresult'></a>
       </div>
     );
 
