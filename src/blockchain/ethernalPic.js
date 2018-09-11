@@ -51,7 +51,7 @@ class EthernalPic extends React.Component {
     let web3 = new Web3(Web3.givenProvider);
     let EthPic = new web3.eth.Contract(ABI, contractAddr);
 
-    EthPic.methods.createPic(document.getElementById('result').value).send(         // TO-DO : need to be refactored! - Dummy data.
+    EthPic.methods.createPic(document.getElementById('result').value).send(
       {
         from: this.state.userAddress,
         to: contractAddr,
