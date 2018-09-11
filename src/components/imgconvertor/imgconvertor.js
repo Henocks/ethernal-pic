@@ -22,21 +22,20 @@ class ImageConvertor extends React.Component {
 
   onFileChange = async (event) => {
     let fileList = event.target.files
-    if (true) {
-      let file = fileList[0]
-      if (!/^image\//.test(file.type)) {
-        alert('이미지 파일만 등록이 가능합니다')
-        return false
-      }
-      const data = await this.encodeBase64ImageFile(file)
-      console.log(data);
-
-      this.setState({
-        imgResult: data
-      });
-
-      document.getElementById('result').value = data;
+    let file = fileList[0]
+    if (!/^image\//.test(file.type)) {
+      alert('이미지 파일만 등록이 가능합니다')
+      return false
     }
+    const data = await this.encodeBase64ImageFile(file)
+    console.log(data);
+
+    this.setState({
+      imgResult: data
+    });
+
+    document.getElementById('result').value = data;
+
   }
 
   onResultChange = (event) => {
