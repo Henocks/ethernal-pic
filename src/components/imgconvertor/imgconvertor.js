@@ -20,7 +20,7 @@ class ImageConvertor extends React.Component {
     });
   }
 
-  onFileChange = (event) => {
+  onFileChange = async (event) => {
     let fileList = event.target.files
     if (true) {
       let file = fileList[0]
