@@ -21,8 +21,9 @@ class ImageConvertor extends React.Component {
   }
 
   onFileChange = async (event) => {
-    let fileList = event.target.files
-    let file = fileList[0]
+    let fileList = event.target.files;
+    let file = fileList[0];
+
     if (!/^image\//.test(file.type)) {
       alert('이미지 파일만 등록이 가능합니다')
       return false
@@ -35,7 +36,6 @@ class ImageConvertor extends React.Component {
     });
 
     document.getElementById('result').value = data;
-
   }
 
   onResultChange = (event) => {
