@@ -2,7 +2,7 @@ import React from 'react';
 
 class ImageConvertor extends React.Component {
   state = {
-    imgResult : null
+    imgResult: null
   }
 
   encodeBase64ImageFile = (image) => {
@@ -29,27 +29,27 @@ class ImageConvertor extends React.Component {
         return false
       }
       const data = await this.encodeBase64ImageFile(file)
+      console.log(data);
 
-          console.log(data)
-          this.setState({
-            imgResult: data
-          })
-          document.getElementById('result').value=data;
+      this.setState({
+        imgResult: data
+      });
 
+      document.getElementById('result').value = data;
     }
   }
 
   onResultChange = (event) => {
-    this.setState({imgResult : document.getElementById('result').value});
+    this.setState({ imgResult: document.getElementById('result').value });
   }
 
   render() {
     return (
-      <div style={{border:'1px solid black'}}>
+      <div style={{ border: '1px solid black' }}>
         <h2>IMGCONV -------------------------</h2>
         <input type="file" accept="image/*" onChange={this.onFileChange}></input>
         <h2>Result</h2>
-        <textarea id="result" onChange={this.onResultChange} style={{width:'80%', height:'300px'}}></textarea>
+        <textarea id="result" onChange={this.onResultChange} style={{ width: '80%', height: '300px' }}></textarea>
         <br /><br />
         <img src={this.state.imgResult} />
       </div>
