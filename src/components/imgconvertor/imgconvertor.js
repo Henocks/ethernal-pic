@@ -29,13 +29,13 @@ class ImageConvertor extends React.Component {
         return false
       }
       const data = await this.encodeBase64ImageFile(file)
-        .then((data) => {
+
           console.log(data)
           this.setState({
             imgResult: data
           })
           document.getElementById('result').value=data;
-        })
+
     }
   }
 
