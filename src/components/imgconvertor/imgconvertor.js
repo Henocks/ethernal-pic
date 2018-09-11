@@ -28,7 +28,7 @@ class ImageConvertor extends React.Component {
         alert('이미지 파일만 등록이 가능합니다')
         return false
       }
-      this.encodeBase64ImageFile(file)
+      const data = await this.encodeBase64ImageFile(file)
         .then((data) => {
           console.log(data)
           this.setState({
