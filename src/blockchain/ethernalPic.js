@@ -51,21 +51,18 @@ class EthernalPic extends React.Component {
     let web3 = new Web3(Web3.givenProvider);
     let EthPic = new web3.eth.Contract(ABI, contractAddr);
 
-    EthPic.methods.createPic(document.getElementById('result').value).send(
+    const txResult = EthPic.methods.createPic(document.getElementById('result').value).send(
       {
         from: this.state.userAddress,
         to: contractAddr,
         value: 0
-      }).then((result) => {
+      });
+
         console.log("Sent done!");
         console.log(result);
         document.getElementById('txresult').innerHTML = result.transactionHash;
         document.getElementById('txresult').href = "https://ropsten.etherscan.io/tx/" + result.transactionHash;
-      }, (reason) => {
-        console.log("Error!");
-        console.log(reason);
-        document.getElementById('txresult').value = reason;
-      });
+
   }
 
   loadImg = () => {
